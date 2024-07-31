@@ -1,0 +1,1 @@
+### *Kōkō kei shinmei, tei ware kokochū i nanpin*
