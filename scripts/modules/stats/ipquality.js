@@ -159,8 +159,12 @@ async function getInfo() {
         fetchIpregistryData(ipv4),
         fetchAbuseipdbData(ipv4),
         fetchIpqualityscoreData(ipv4),
+<<<<<<< HEAD
         fetchDbIpData(ipv4),
         fetchIpapiData(ipv4)
+=======
+        fetchDbIpData(ipv4)
+>>>>>>> 52c0162dedc816668a91d18d358120999b39b247
       ];
 
       const results = await Promise.all(apiRequests);
@@ -172,6 +176,7 @@ async function getInfo() {
         }
       });
 
+<<<<<<< HEAD
       // 如果 ipinfo.check.place 相关 API 全部失效，使用 DB-IP 和 IPAPI 的数据
       if (!info.maxmind && !info.ipregistry && !info.abuseipdb && !info.ipqs) {
         info.maxmind = {
@@ -183,6 +188,20 @@ async function getInfo() {
           geoConsistency: info.ipapi?.asn?.country === info.ipapi?.location?.country_code ? 'Geo-consistent' : 'Geo-discrepant'
         };
       }
+=======
+      // // 获取最差的风险等级和最高评分
+      // const scores = [
+      //   info.abuseipdb?.score || 0,
+      //   info.ipqs?.score || 0,
+      //   info.dbip?.risk || 0
+      // ];
+// 
+      // const reputationInfo = {
+      //   usageType: getUsageType(info.abuseipdb?.usetype),
+      //   riskLevel: getWorstRiskLevel(scores),
+      //   score: Math.max(...scores)
+      // };
+>>>>>>> 52c0162dedc816668a91d18d358120999b39b247
 
       const scores = [    
         info.abuseipdb?.score || 0,
@@ -193,10 +212,19 @@ async function getInfo() {
       const { level, score } = getWorstRiskLevel(scores);
       
       const reputationInfo = {
+<<<<<<< HEAD
         usageType: getUsageType(info.abuseipdb?.usetype || info.ipapi?.company?.type),
         riskLevel: level,
         score: score
       };
+=======
+        usageType: getUsageType(info.abuseipdb?.usetype),
+        riskLevel: level,
+        score: score
+      };
+       
+
+>>>>>>> 52c0162dedc816668a91d18d358120999b39b247
 
       // 将声誉信息合并到 info 对象中
       Object.assign(info, reputationInfo);
@@ -357,6 +385,7 @@ async function fetchDbIpData(ip) {
   }
 }
 
+<<<<<<< HEAD
 async function fetchIpapiData(ip) {
   try {
     const res = await $.http.get({
@@ -378,6 +407,8 @@ async function fetchIpapiData(ip) {
     return null;
   }
 }
+=======
+>>>>>>> 52c0162dedc816668a91d18d358120999b39b247
 
 const usageTypeMap = {
   'Data Center/Web Hosting/Transit': 'Hosting',
