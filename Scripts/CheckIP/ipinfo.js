@@ -42,11 +42,23 @@ let result = {}
     
     
     let title = chatStatus.status
+    /*
     let content = [
       `🅖 & 🅰🅸: ${chatStatus.ip} & ${clientIp}`,
       `❶: ${flag} ${country} ${colo} | ${city}, ${region}`,
       `❷: ASN ${asn} | ${asOrganization}`,
       //`❸: Colocation Location: ${colo}`
+    ].join('\n')
+    */
+
+    let content = [
+      `🛡️ Proxy IP: ${clientIp}`,
+      `🤖 AIGC IP: ${chatStatus.ip}`,
+      `🌐 Location: ${flag} ${country} • ${colo}`,
+      //`📍 Location: ${city}, ${region} | 📦 Colo: ${colo}`,
+      //`📍 Location: ${city}, ${flag}`,
+      //`🔢 ASN: ${asn} | 🏢 Organization: ${asOrganization}`
+      `🏢 Organization: ASN${asn} • ${asOrganization}`
     ].join('\n')
 
     result = {
@@ -128,7 +140,7 @@ async function checkOpenAI() {
     }, {})
 
     const loc = traceInfo.loc
-    const status = SUPPORT_COUNTRY.includes(loc) ? "🟢" : "🔴"
+    const status = SUPPORT_COUNTRY.includes(loc) ? "✔︎" : "✗"
     const emoji = getFlagEmoji(loc)
     const ip = traceInfo.ip
 

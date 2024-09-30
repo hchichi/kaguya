@@ -1,8 +1,0 @@
-#!name= Function | ⏱️ Refresh DNS Cache
-#!desc= Refresh DNS Cache.
-
-[Panel]
-redns = script-name=redns,update-interval=600
-
-[Script]
-redns = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/SakuraEmi/kaguya/Master/scripts/modules/redns/redns.js

@@ -1,9 +1,0 @@
-#!name=节假日信息
-#!desc=显示节假日的信息
-#!system=ios
-
-[Panel]
-Timecard = script-name=Timecard,update-interval=3600
-
-[Script]
-Timecard = type=generic,timeout=10,script-path= https://raw.githubusercontent.com/anyawa/kaguya/master/module/panel/timecard/tc.js
