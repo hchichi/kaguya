@@ -198,6 +198,8 @@ async function getInfo() {
         score: score
       };
 
+>>>>>>> 52c0162dedc816668a91d18d358120999b39b247
+
       // 将声誉信息合并到 info 对象中
       Object.assign(info, reputationInfo);
     }
